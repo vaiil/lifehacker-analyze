@@ -1,4 +1,6 @@
-# lifehacker-analyze
+# lifehacker-analysis
+[HAR file](./lifehacker.ru.har)
+[Performance profile](./profile.json)
 
 ## Проблемные ресурсы
 Из вкладки network видно большое количество обращений к различным ресурсам, 
@@ -59,15 +61,15 @@
 Судя повсему, подключенный [font-awesome.min.css](https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css) 
 ни разу не используется на странице. Браузер даже не подгружает шрифт, указанный в этом css.
 
-### Perfomance
+## Performance
 
-| Событие | Время
+| Событие | Время, ms
 | --- | --- |
-| First Paint | 550ms |
-| First Contentful Paint | 550ms
-| First Meaningful Paint | 1533ms
-| DOMContentLoaded Event | 1683ms
-| Largest Contentful Paint | 2666ms
+| First Paint | 550 |
+| First Contentful Paint | 550
+| First Meaningful Paint | 1533
+| DOMContentLoaded Event | 1683
+| Largest Contentful Paint | 2666
 | Onload Event | 3344ms 
 
 | Что делал | Время, ms
@@ -79,10 +81,42 @@
 | System | 352 
  
 
-### Coverage
+## Coverage
 ![coverage screenshot](coverage.jpg)
 
 **Неиспользованные ресурсы:**
 * CSS 233kb
 * JS 2.1mb
+
+# Mobile
+[HAR file](./mobile/lifehacker.ru.har)
+[Performance profile](./mobile/profile.json)
+
+По нетворку, ситуация особо не изменилась, просто увеличились тайминги.
+
+## Performance
+
+| Событие | Время, ms
+| --- | --- |
+| First Paint | 11879 |
+| First Contentful Paint | 11879
+| First Meaningful Paint | 15595
+| DOMContentLoaded Event | 25827
+| Onload Event | 50408 
+
+
+| Что делал | Время, ms
+| --- | --- |
+|Loading|167 
+|Scripting|8079
+|Rendering|6258 
+|Painting|1112 
+|System|11971 
+|Idle|25895 
+|Total|53483 
+
+## Coverage
+![coverage screenshot](coverage.jpg)
+* CSS 230kb
+* JS 1.7mb
 
